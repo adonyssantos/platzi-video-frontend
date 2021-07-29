@@ -9,7 +9,11 @@ import '../assets/styles/App.scss';
 
 export const App = () => {
   const API = 'http://localhost:3000/initalState';
-  const [videos, setVideos] = useState([]);
+  const [videos, setVideos] = useState({
+    mylist: [],
+    trends: [],
+    originals: [],
+  });
 
   useEffect(() => {
     fetch(API)
@@ -18,36 +22,28 @@ export const App = () => {
       .catch(error => console.error(error.message));
   }, []);
 
-  console.log(videos);
-
   return (
     <div className='App'>
       <Header />
       <Search />
-
-      <Categories title='My list'>
-        <Carousel>
-          <CarouselItem />
-          <CarouselItem />
-          <CarouselItem />
-          <CarouselItem />
-        </Carousel>
-      </Categories>
+      {videos.mylist.length > 0 && (
+        <Categories title='My list'>
+          <Carousel>
+            <CarouselItem />
+          </Carousel>
+        </Categories>
+      )}
 
       <Categories title='Trending'>
         <Carousel>
-          <CarouselItem />
-          <CarouselItem />
-          <CarouselItem />
-          <CarouselItem />
+          {videos.trends.map(item => (
+            <CarouselItem key={item.id} {...item} />
+          ))}
         </Carousel>
       </Categories>
 
       <Categories title='PlatziVideo Originals'>
         <Carousel>
-          <CarouselItem />
-          <CarouselItem />
-          <CarouselItem />
           <CarouselItem />
         </Carousel>
       </Categories>

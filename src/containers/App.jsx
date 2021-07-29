@@ -12,7 +12,8 @@ export const App = () => {
     <div className='App'>
       <Header />
       <Search />
-      <Categories>
+
+      <Categories title='My list'>
         <Carousel>
           <CarouselItem />
           <CarouselItem />
@@ -20,6 +21,25 @@ export const App = () => {
           <CarouselItem />
         </Carousel>
       </Categories>
+
+      <Categories title='Trending'>
+        <Carousel>
+          <CarouselItem />
+          <CarouselItem />
+          <CarouselItem />
+          <CarouselItem />
+        </Carousel>
+      </Categories>
+
+      <Categories title='PlatziVideo Originals'>
+        <Carousel>
+          <CarouselItem />
+          <CarouselItem />
+          <CarouselItem />
+          <CarouselItem />
+        </Carousel>
+      </Categories>
+
       <Footer />
     </div>
   );

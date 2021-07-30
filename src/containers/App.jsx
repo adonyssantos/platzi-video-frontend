@@ -20,7 +20,9 @@ export const App = () => {
       {initialState.mylist.length > 0 && (
         <Categories title='My list'>
           <Carousel>
-            <CarouselItem />
+            {initialState.mylist.map(item => (
+              <CarouselItem key={item.id} {...item} />
+            ))}
           </Carousel>
         </Categories>
       )}
@@ -35,7 +37,9 @@ export const App = () => {
 
       <Categories title='PlatziVideo Originals'>
         <Carousel>
-          <CarouselItem />
+          {initialState.originals.map(item => (
+            <CarouselItem key={item.id} {...item} />
+          ))}
         </Carousel>
       </Categories>
 

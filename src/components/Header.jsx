@@ -9,14 +9,14 @@ const Header = () => (
       <div className='header__menu'>
         <div className='header__menu--profile'>
           <img src={userIcon} alt='' />
-          <p>Perfil</p>
+          <p>Profile</p>
         </div>
         <ul>
           <li>
-            <a href='/'>Cuenta</a>
+            <a href='/'>Account</a>
           </li>
           <li>
-            <a href='/'>Cerrar Sesión</a>
+            <a href='/'>Logout</a>
           </li>
         </ul>
       </div>

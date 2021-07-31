@@ -12,9 +12,9 @@
     "type": "git",
     "url": "git+https://github.com/adonyssantos/platzi-video-react.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["react", "reacr-dom"],
+  "author": "Adonys Santos <adonyssantosjimenez@gmail.com>",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/adonyssantos/platzi-video-react/issues"
   },

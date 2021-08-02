@@ -14,8 +14,7 @@ export const Home = () => {
   const initialState = useInitialState(API);
 
   return (
-    <div className='App'>
-      <Header />
+    <>
       <Search />
       {initialState.mylist.length > 0 && (
         <Categories title='My list'>
@@ -42,9 +41,7 @@ export const Home = () => {
           ))}
         </Carousel>
       </Categories>
-
-      <Footer />
-    </div>
+    </>
   );
 };
 

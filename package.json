@@ -14,7 +14,7 @@
   },
   "keywords": [
     "react",
-    "reacr-dom"
+    "react-dom"
   ],
   "author": "Adonys Santos <adonyssantosjimenez@gmail.com>",
   "license": "MIT",
@@ -26,7 +26,10 @@
     "json-server": "^0.16.3",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.4",
+    "react-router-dom": "^5.2.0",
+    "redux": "^4.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.14.8",
@@ -45,10 +48,9 @@
     "html-webpack-plugin": "^5.3.2",
     "mini-css-extract-plugin": "^2.1.0",
     "node-sass": "^6.0.1",
-    "react-router-dom": "^5.2.0",
     "sass-loader": "^12.1.0",
     "webpack": "^5.47.0",
     "webpack-cli": "^4.7.2",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^1.16.5"
   }
 }

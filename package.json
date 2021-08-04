@@ -24,6 +24,7 @@
   "homepage": "https://github.com/adonyssantos/platzi-video-react#readme",
   "dependencies": {
     "json-server": "^0.16.3",
+    "md5": "^2.3.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

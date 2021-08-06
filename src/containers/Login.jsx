@@ -50,7 +50,7 @@ const Login = props => {
             <div className='login__container--remember-me'>
               <label>
                 <input type='checkbox' id='cbox1' value='first_checkbox' />
-                Remember me
+                Remember me {''}
               </label>
               <a href='/'>I forgot my password</a>
             </div>

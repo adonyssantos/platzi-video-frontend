@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getVideoSource } from '../actions';
-import { Redirect } from 'react-router-dom';
+import NotFound from './NotFound';
+// import { Redirect } from 'react-router-dom';
 import '../assets/styles/Player.scss';
 
 const Player = props => {
@@ -25,7 +26,8 @@ const Player = props => {
       </div>
     </div>
   ) : (
-    <Redirect to='/404/' />
+    <NotFound />
+    // <Redirect to='/404/' />
   );
 };
 

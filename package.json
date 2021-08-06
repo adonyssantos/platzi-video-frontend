@@ -4,15 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode production",
     "start": "webpack serve --open --mode development",
-    "server": "json-server initialState.json"
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/adonyssantos/platzi-video-react.git"
   },
-  "keywords": ["react", "reacr-dom"],
+  "keywords": [
+    "react",
+    "react-dom"
+  ],
   "author": "Adonys Santos <adonyssantosjimenez@gmail.com>",
   "license": "MIT",
   "bugs": {
@@ -20,10 +22,15 @@
   },
   "homepage": "https://github.com/adonyssantos/platzi-video-react#readme",
   "dependencies": {
+    "classnames": "^2.3.1",
     "json-server": "^0.16.3",
+    "md5": "^2.3.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.4",
+    "react-router-dom": "^5.2.0",
+    "redux": "^4.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.14.8",

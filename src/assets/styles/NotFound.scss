@@ -1,0 +1,21 @@
+.container__not-found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  // height: 100vh;
+  height: calc(100vh - 200px);
+  background: linear-gradient(#21c08b, #8f57fd);
+}
+
+.container__not-found--title {
+  margin: 0;
+  font-size: 6.4rem;
+  color: #eee;
+}
+
+.container__not-found--subtitle {
+  margin: 0;
+  font-size: 2.4rem;
+  color: #eee;
+}

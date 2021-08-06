@@ -9,7 +9,9 @@ const Player = props => {
         <source src='' type='video/mp4' />
       </video>
       <div className='Player-back'>
-        <button type='button'>Back</button>
+        <button type='button' onClick={() => props.history.goBack()}>
+          Back
+        </button>
       </div>
     </div>
   );

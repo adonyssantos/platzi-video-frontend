@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { registerRequest } from '../actions';
-import Header from '../components/Header';
+import { Header } from '../components';
 import '../assets/styles/Register.scss';
 
 const Register = props => {

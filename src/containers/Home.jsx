@@ -1,11 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Header from '../components/Header';
-import Search from '../components/Search';
-import Categories from '../components/Categories';
-import Carousel from '../components/Carousel';
-import CarouselItem from '../components/CarouselItem';
-import '../assets/styles/App.scss';
+import {
+  Header,
+  Search,
+  Categories,
+  Carousel,
+  CarouselItem,
+} from '../components';
+import '../assets/styles/Home.scss';
 
 export const Home = ({ myList, trends, originals, searchResult }) => {
   return (

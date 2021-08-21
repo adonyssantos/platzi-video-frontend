@@ -1,8 +1,20 @@
-# Platzi Video
+# Platzi Video (Frontend)
 
 **Platzi Video** is the project what I do in the JavaScript School of Platzi.
 
+Platzi Video `frontend` is made with `React` and `Sass`.
+
 <!-- **Live demo:** []() ... Coming soon -->
+
+# Table of contents
+
+- [Run this project in development mode](#run-this-project-in-development-mode)
+- [Scripts](#scripts)
+- [Credits](#credits)
+
+<!-- ## Screenshot
+
+![Platzi Video Screenshot](url) -->
 
 ## Run this project in development mode
 
@@ -13,6 +25,22 @@
 
 ## Scripts
 
-### `npm start`, run development server
+In this project you can run the following Scripts:
 
-### `npm run build`, run production server
+### `npm install`
+
+To install the necessary Node modules.
+
+### `npm run build`
+
+Run the application in production mode.
+
+### `npm start`
+
+Run the application in development mode.
+
+## Credits
+
+Develop this project thanks to Platzi.
+
+https://platzi.com/escuela-javascript/

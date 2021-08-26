@@ -4,6 +4,7 @@
     "es6": true,
     "node": true
   },
+  "arrow-parens": "as-needed",
   "extends": ["airbnb"],
   "globals": {
     "document": false,

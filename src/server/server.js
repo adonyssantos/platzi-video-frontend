@@ -43,9 +43,7 @@ if (config.dev) {
   app.disable('x-powered-by');
 }
 
-app.get('*', (request, response) => {
-  renderApp(request, response);
-});
+app.get('*', renderApp);
 
 app.listen(config.port, error => {
   if (error) {

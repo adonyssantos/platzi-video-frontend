@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build && node src/server",
+    "start": "npm run build && NODE_ENV=production node src/server",
     "build": "webpack-cli --config webpack.config.js",
     "dev": "NODE_ENV=development nodemon ./src/server/index.js",
     "debug": "DEBUG=express:*,app:* npm run start:dev",

@@ -6,7 +6,8 @@ const TerserPlugin = require('terser-webpack-plugin');
 
 require('dotenv').config();
 
-const isDev = process.env.ENV === 'development';
+const environment = process.env.NODE_ENV || 'production';
+const isDev = environment === 'development';
 const entry = ['./src/client/index.js'];
 
 if (isDev) {
@@ -17,7 +18,7 @@ if (isDev) {
 
 module.exports = {
   entry,
-  mode: process.env.ENV,
+  mode: environment,
   output: {
     path: path.resolve(__dirname, './src/server/public'),
     filename: 'assets/app.js',

@@ -30,6 +30,7 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "history": "^5.0.1",
+    "ignore-styles": "^5.0.1",
     "json-server": "^0.16.3",
     "md5": "^2.3.0",
     "prop-types": "^15.7.2",
@@ -39,7 +40,7 @@
     "react-redux": "^7.2.4",
     "react-router": "^5.2.1",
     "react-router-config": "^5.1.1",
-    "react-router-dom": "^5.2.0",
+    "react-router-dom": "^5.2.1",
     "redux": "^4.1.0",
     "webpack": "^5.51.1"
   },

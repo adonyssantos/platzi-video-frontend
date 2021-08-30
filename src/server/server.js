@@ -24,6 +24,21 @@ if (config.dev) {
 } else {
   app.use(express.static(`${__dirname}/public`));
   app.use(helmet());
+  app.use(
+    helmet.contentSecurityPolicy({
+      directives: {
+        'default-src': ["'self'"],
+        'script-src': [
+          "'self'",
+          "'sha256-lKtLIbt/r08geDBLpzup7D3pTCavi4hfYSO45z98900='",
+        ],
+        'img-src': ["'self'", 'http://dummyimage.com'],
+        'style-src-elem': ["'self'", 'https://fonts.googleapis.com'],
+        'font-src': ['https://fonts.gstatic.com'],
+        'media-src': ['*'],
+      },
+    }),
+  );
   app.use(helmet.permittedCrossDomainPolicies());
   app.disable('x-powered-by');
 }

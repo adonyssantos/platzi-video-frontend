@@ -1,8 +1,8 @@
 import express from 'express';
+import helmet from 'helmet';
 import webpack from 'webpack';
 import config from './config';
 import { renderApp } from './helpers/index';
-// import renderApp from './helpers/renderApp';
 
 const app = express();
 
@@ -21,6 +21,11 @@ if (config.dev) {
 
   app.use(webpackDevMiddleware(compiler, serverConfig));
   app.use(webpackHotMiddleware(compiler));
+} else {
+  app.use(express.static(`${__dirname}/public`));
+  app.use(helmet());
+  app.use(helmet.permittedCrossDomainPolicies());
+  app.disable('x-powered-by');
 }
 
 app.get('*', (request, response) => {

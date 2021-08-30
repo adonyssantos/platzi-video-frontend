@@ -8,18 +8,20 @@ import serverRoutes from '../../client/routes/serverRoutes.js';
 import { initialState } from '../../../initialState.json';
 import reducer from '../../client/reducers';
 import setResponse from './setResponse';
+import { Layout } from '../../client/components';
 
 const renderApp = (request, response) => {
   const store = createStore(reducer, initialState);
+  const preloadedState = store.getState();
   const html = renderToString(
     <Provider store={store}>
       <StaticRouter location={request.url} context={{}}>
-        {renderRoutes(serverRoutes)}
+        <Layout>{renderRoutes(serverRoutes)}</Layout>
       </StaticRouter>
     </Provider>,
   );
 
-  response.send(setResponse(html));
+  response.send(setResponse(html, preloadedState));
 };
 
 export default renderApp;

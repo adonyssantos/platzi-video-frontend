@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import * as utils from '../utils';
+import gravatar from '../utils/gravatar';
 import { logoutRequest } from '../actions';
 import '../assets/styles/components/Header.scss';
 import logo from '../assets/static/logo-platzi-video-BW2.png';
@@ -31,11 +31,7 @@ const Header = (props) => {
         </Link>
         <div className='header__menu'>
           <div className='header__menu--profile'>
-            {hasUser ? (
-              <img src={utils.gravatar(user.email)} alt={user.email} />
-            ) : (
-              <img src={userIcon} alt='User icon' />
-            )}
+            {hasUser ? <img src={gravatar(user.email)} alt={user.email} /> : <img src={userIcon} alt='User icon' />}
             <p>Profile</p>
           </div>
           <ul>

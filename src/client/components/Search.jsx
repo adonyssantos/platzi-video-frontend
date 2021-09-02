@@ -4,11 +4,11 @@ import { connect } from 'react-redux';
 import { getVideoSearch } from '../actions';
 import '../assets/styles/components/Search.scss';
 
-const Search = props => {
+const Search = (props) => {
   const { isHome, getVideoSearch } = props;
   const inputStyle = classNames('input', { isHome });
 
-  const handleInput = event => {
+  const handleInput = (event) => {
     getVideoSearch(event.target.value);
   };
 
@@ -25,7 +25,7 @@ const Search = props => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     searchResult: state.searchResult,
   };

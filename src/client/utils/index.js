@@ -1,3 +1,3 @@
 import gravatar from './gravatar';
 
-export { gravatar };
+export default { gravatar };

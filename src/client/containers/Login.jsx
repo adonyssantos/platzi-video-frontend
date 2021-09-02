@@ -7,16 +7,16 @@ import googleIcon from '../assets/static/google-icon.png';
 import twitterIcon from '../assets/static/twitter-icon.png';
 import '../assets/styles/Login.scss';
 
-const Login = props => {
+const Login = (props) => {
   const [form, setValues] = useState({
     email: '',
   });
 
-  const handleInput = event => {
+  const handleInput = (event) => {
     setValues({ ...form, [event.target.name]: event.target.value });
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     props.loginRequest(form);
     props.history.push('/');
@@ -48,23 +48,26 @@ const Login = props => {
               Sign in
             </button>
             <div className='login__container--remember-me'>
-              <label>
+              <label htmlFor='cbox1'>
                 <input type='checkbox' id='cbox1' value='first_checkbox' />
-                Remember me {''}
+                Remember me
               </label>
               <a href='/'>I forgot my password</a>
             </div>
           </form>
           <section className='login__container--social-media'>
             <div>
-              <img src={googleIcon} /> Sign in with Google
+              <img src={googleIcon} alt='googleIcon' />
+              Sign in with Google
             </div>
             <div>
-              <img src={twitterIcon} /> Sign in with Twitter
+              <img src={twitterIcon} alt='twitterIcon' />
+              Sign in with Twitter
             </div>
           </section>
           <p className='login__container--register'>
-            I don't have an account <Link to='/register'>Register</Link>
+            I don&apos;t have an account
+            <Link to='/register'>Register</Link>
           </p>
         </section>
       </section>

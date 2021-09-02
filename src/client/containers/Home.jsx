@@ -1,15 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {
-  Header,
-  Search,
-  Categories,
-  Carousel,
-  CarouselItem,
-} from '../components';
+import { Header, Search, Categories, Carousel, CarouselItem } from '../components';
 import '../assets/styles/Home.scss';
 
-export const Home = ({ myList, trends, originals, searchResult }) => {
+const Home = ({ myList, trends, originals, searchResult }) => {
   return (
     <>
       <Header />
@@ -18,7 +12,7 @@ export const Home = ({ myList, trends, originals, searchResult }) => {
       {Object.keys(searchResult).length > 0 && (
         <Categories title='Search results'>
           <Carousel>
-            {searchResult.map(item => (
+            {searchResult.map((item) => (
               <CarouselItem key={item.id} {...item} />
             ))}
           </Carousel>
@@ -28,7 +22,7 @@ export const Home = ({ myList, trends, originals, searchResult }) => {
       {myList.length > 0 && (
         <Categories title='My list'>
           <Carousel>
-            {myList.map(item => (
+            {myList.map((item) => (
               <CarouselItem key={item.id} {...item} isList />
             ))}
           </Carousel>
@@ -37,7 +31,7 @@ export const Home = ({ myList, trends, originals, searchResult }) => {
 
       <Categories title='Trending'>
         <Carousel>
-          {trends.map(item => (
+          {trends.map((item) => (
             <CarouselItem key={item.id} {...item} />
           ))}
         </Carousel>
@@ -45,7 +39,7 @@ export const Home = ({ myList, trends, originals, searchResult }) => {
 
       <Categories title='PlatziVideo Originals'>
         <Carousel>
-          {originals.map(item => (
+          {originals.map((item) => (
             <CarouselItem key={item.id} {...item} />
           ))}
         </Carousel>
@@ -54,7 +48,7 @@ export const Home = ({ myList, trends, originals, searchResult }) => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     myList: state.myList,
     trends: state.trends,

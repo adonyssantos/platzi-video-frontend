@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import { gravatar } from '../utils';
+import * as utils from '../utils';
 import { logoutRequest } from '../actions';
 import '../assets/styles/components/Header.scss';
 import logo from '../assets/static/logo-platzi-video-BW2.png';
 import userIcon from '../assets/static/user-icon.png';
 
-const Header = props => {
+const Header = (props) => {
   const { user, isLogin, isRegister, isNotFound } = props;
   const hasUser = Object.keys(user).length > 0;
 
@@ -32,7 +32,7 @@ const Header = props => {
         <div className='header__menu'>
           <div className='header__menu--profile'>
             {hasUser ? (
-              <img src={gravatar(user.email)} alt={user.email} />
+              <img src={utils.gravatar(user.email)} alt={user.email} />
             ) : (
               <img src={userIcon} alt='User icon' />
             )}
@@ -42,7 +42,7 @@ const Header = props => {
             {hasUser ? (
               <>
                 <li>
-                  <a href='#'>{user.name}</a>
+                  <a href='/'>{user.name}</a>
                 </li>
                 <li>
                   <a href='#login' onClick={handleLogout}>
@@ -67,7 +67,7 @@ Header.propTypes = {
   logoutRequest: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     user: state.user,
   };

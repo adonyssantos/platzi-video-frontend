@@ -3,6 +3,7 @@ import helmet from 'helmet';
 import webpack from 'webpack';
 import config from './config';
 import { renderApp } from './helpers/index';
+import getManifest from './getManifest';
 
 const app = express();
 
@@ -17,11 +18,15 @@ if (config.dev) {
   const serverConfig = {
     serverSideRender: true,
     publicPath,
-  }; //   const serverConfig = { port: config.port, hot: true };
+  };
 
   app.use(webpackDevMiddleware(compiler, serverConfig));
   app.use(webpackHotMiddleware(compiler));
 } else {
+  app.use((request, _response, next) => {
+    if (!request.hasManifest) request.hasManifest = getManifest();
+    next();
+  });
   app.use(express.static(`${__dirname}/public`));
   app.use(helmet());
   app.use(

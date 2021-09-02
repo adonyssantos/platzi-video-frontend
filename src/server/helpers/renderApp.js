@@ -21,7 +21,7 @@ const renderApp = (request, response) => {
     </Provider>,
   );
 
-  response.send(setResponse(html, preloadedState));
+  response.send(setResponse(html, preloadedState, request.hasManifest));
 };
 
 export default renderApp;

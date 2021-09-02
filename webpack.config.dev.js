@@ -1,15 +1,17 @@
 const path = require('path');
+const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CompressionWebpackPlugin = require('compression-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 
 module.exports = {
-  entry: './src/client/index.js',
-  mode: 'production',
+  entry: [
+    './src/client/index.js',
+    'webpack-hot-middleware/client?path=/__webpack_ hmr&timeout=2000&reload=true',
+  ],
+  mode: 'development',
   output: {
     path: path.resolve(__dirname, 'src/server/public'),
-    filename: 'assets/app-[fullhash].js',
+    filename: 'assets/app.js',
     publicPath: '/',
   },
   resolve: {
@@ -47,7 +49,7 @@ module.exports = {
         },
       },
       {
-        test: /\.(s*)css/,
+        test: /\.(s*)css$/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
@@ -69,14 +71,13 @@ module.exports = {
       },
     ],
   },
+  devServer: {
+    historyApiFallback: true,
+  },
   plugins: [
-    new CompressionWebpackPlugin({
-      test: /\.js$|\.css$/,
-      filename: '[path][base].gz',
-    }),
-    new WebpackManifestPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'assets/app-[fullhash].css',
+      filename: 'assets/app.css',
     }),
   ],
 };

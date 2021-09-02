@@ -7,8 +7,8 @@
     "start": "npm run build && NODE_ENV=production node ./src/server/index.js",
     "build": "webpack-cli --config webpack.config.js",
     "dev": "NODE_ENV=development nodemon ./src/server/index.js",
-    "debug": "DEBUG=express:*,app:* npm run startdev",
-    "inspect": "DEBUG=express:*,app:* nodemon --inspect ./src/server/index.js"
+    "debug": "DEBUG=express:*,app:* npm run dev",
+    "inspect": "DEBUG=express:*,app:* NODE_ENV=development nodemon --inspect ./src/server/index.js"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,10 @@
   },
   "homepage": "https://github.com/adonyssantos/platzi-video-react#readme",
   "dependencies": {
+    "@babel/core": "^7.14.8",
+    "@babel/plugin-transform-runtime": "^7.15.0",
+    "@babel/preset-env": "^7.14.8",
+    "@babel/preset-react": "^7.14.5",
     "@babel/register": "^7.15.3",
     "asset-require-hook": "^1.2.0",
     "classnames": "^2.3.1",
@@ -48,9 +52,6 @@
     "webpack-manifest-plugin": "^4.0.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.8",
-    "@babel/preset-env": "^7.14.8",
-    "@babel/preset-react": "^7.14.5",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^4.0.0",

@@ -1,6 +1,10 @@
 const setResponse = (html, preloadedState, manifest) => {
   const mainStyles = manifest ? manifest['main.css'] : 'assets/app.css';
   const mainBuild = manifest ? manifest['main.js'] : 'assets/app.js';
+  const vendorStyles = manifest
+    ? manifest['vendors.css']
+    : 'assets/vendors.css';
+  const vendorBuild = manifest ? manifest['vendors.js'] : 'assets/vendors.js';
 
   return `
 	<!DOCTYPE html>
@@ -12,6 +16,7 @@ const setResponse = (html, preloadedState, manifest) => {
 		<meta name="description" content="Platzi Video with ReactJS" />
 		<title>Platzi Video</title>
 		<link href=${mainStyles} rel="stylesheet" type="text/css" />
+		<link href=${vendorStyles} rel="stylesheet" type="text/css" />
 	  </head>
 	  <body>
 		<div id="app">${html}</div>
@@ -22,6 +27,7 @@ const setResponse = (html, preloadedState, manifest) => {
           )}
 		  </script>
 		<script src=${mainBuild} type="text/javascript"></script>
+		<script src=${vendorBuild} type="text/javascript"></script>
 	  </body>
 	</html>
 	`;

@@ -38,7 +38,7 @@ if (config.dev) {
 
   const webpackDevMiddleware = require('webpack-dev-middleware');
   const webpackHotMiddleware = require('webpack-hot-middleware');
-  const webpackConfig = require('../../webpack.config');
+  const webpackConfig = require('../../webpack.config.dev.js');
   const compiler = webpack(webpackConfig);
   const { publicPath } = webpackConfig.output;
   const serverConfig = {

@@ -1,9 +1,8 @@
+/* eslint-disable no-tabs */
 const setResponse = (html, preloadedState, manifest) => {
   const mainStyles = manifest ? manifest['main.css'] : 'assets/app.css';
   const mainBuild = manifest ? manifest['main.js'] : 'assets/app.js';
-  const vendorStyles = manifest
-    ? manifest['vendors.css']
-    : 'assets/vendors.css';
+  const vendorStyles = manifest ? manifest['vendors.css'] : 'assets/vendors.css';
   const vendorBuild = manifest ? manifest['vendors.js'] : 'assets/vendors.js';
 
   return `
@@ -21,11 +20,8 @@ const setResponse = (html, preloadedState, manifest) => {
 	  <body>
 		<div id="app">${html}</div>
 		<script>
-          window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(
-            /</g,
-            '\\u003c',
-          )}
-		  </script>
+          window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}
+		</script>
 		<script src=${mainBuild} type="text/javascript"></script>
 		<script src=${vendorBuild} type="text/javascript"></script>
 	  </body>

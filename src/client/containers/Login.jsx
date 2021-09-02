@@ -30,21 +30,9 @@ const Login = (props) => {
         <section className='login__container'>
           <h2>Sign in</h2>
           <form className='login__container--form' onSubmit={handleSubmit}>
-            <input
-              name='email'
-              className='input'
-              type='text'
-              placeholder='Email'
-              onChange={handleInput}
-            />
-            <input
-              name='password'
-              className='input'
-              type='password'
-              placeholder='Password'
-              onChange={handleInput}
-            />
-            <button type='submit' className='button'>
+            <input name='email' className='input' type='text' placeholder='Email' onChange={handleInput} />
+            <input name='password' className='input' type='password' placeholder='Password' onChange={handleInput} />
+            <button type='button' className='button'>
               Sign in
             </button>
             <div className='login__container--remember-me'>

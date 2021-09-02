@@ -5,10 +5,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
-  entry: [
-    './src/client/index.js',
-    'webpack-hot-middleware/client?path=/__webpack_ hmr&timeout=2000&reload=true',
-  ],
+  entry: ['./src/client/index.js', 'webpack-hot-middleware/client?path=/__webpack_ hmr&timeout=2000&reload=true'],
   mode: 'development',
   output: {
     path: path.resolve(__dirname, 'src/server/public'),
@@ -33,8 +30,7 @@ module.exports = {
           enforce: true,
           test(module, chunks) {
             const name = module.nameForCondition && module.nameForCondition();
-            return chunk =>
-              chunk.name !== 'vendors' && /[\\/]node_modules[\\/]/.test(name);
+            return (chunk) => chunk.name !== 'vendors' && /[\\/]node_modules[\\/]/.test(name);
           },
         },
       },
@@ -76,7 +72,11 @@ module.exports = {
     historyApiFallback: true,
   },
   plugins: [
-    new ESLintPlugin(),
+    new ESLintPlugin({
+      extensions: ['.js', '.jsx'],
+      fix: true,
+      emitError: true,
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new MiniCssExtractPlugin({
       filename: 'assets/app.css',

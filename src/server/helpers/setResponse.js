@@ -20,7 +20,7 @@ const setResponse = (html, preloadedState, manifest) => {
             /</g,
             '\\u003c',
           )}
-        </script>
+		  </script>
 		<script src=${mainBuild} type="text/javascript"></script>
 	  </body>
 	</html>

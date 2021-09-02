@@ -4,7 +4,6 @@
     "es6": true,
     "node": true
   },
-  "arrow-parens": "as-needed",
   "extends": ["airbnb"],
   "globals": {
     "document": false,
@@ -210,6 +209,7 @@
         "allowArrowFunctions": true
       }
     ],
+    "react/jsx-props-no-spreading": "off",
     "react/jsx-no-undef": 2,
     "react/jsx-pascal-case": 2,
     "react/jsx-sort-prop-types": 0,

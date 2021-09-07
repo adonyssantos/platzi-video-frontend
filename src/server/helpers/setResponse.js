@@ -1,10 +1,9 @@
+/* eslint no-tabs: ["error", { allowIndentationTabs: true }] */
 const setResponse = (html, preloadedState, manifest) => {
   const mainStyles = manifest ? manifest['main.css'] : 'assets/app.css';
   const mainBuild = manifest ? manifest['main.js'] : 'assets/app.js';
-  const vendorStyles = manifest
-    ? manifest['vendors.css']
-    : 'assets/vendors.css';
-  const vendorBuild = manifest ? manifest['vendors.js'] : 'assets/vendors.js';
+  const vendorStyles = manifest ? manifest['vendors.css'] : 'assets/app.css';
+  const vendorBuild = manifest ? manifest['vendors.js'] : 'assets/vendor.js';
 
   return `
 	<!DOCTYPE html>
@@ -20,12 +19,9 @@ const setResponse = (html, preloadedState, manifest) => {
 	  </head>
 	  <body>
 		<div id="app">${html}</div>
-		<script>
-          window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(
-            /</g,
-            '\\u003c',
-          )}
-		  </script>
+		<script id="preloadedState">
+		  window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}
+	  	</script>
 		<script src=${mainBuild} type="text/javascript"></script>
 		<script src=${vendorBuild} type="text/javascript"></script>
 	  </body>

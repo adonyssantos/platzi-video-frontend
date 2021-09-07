@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 import express from 'express';
 import webpack from 'webpack';
 import helmet from 'helmet';
@@ -9,7 +10,7 @@ const app = express();
 
 if (config.production) {
   app.use((request, _response, next) => {
-    if (!request.hasManifest) request.hasManifest = getManifest();
+    if (!request.hashManifest) request.hashManifest = getManifest();
     next();
   });
   app.use(express.static(`${__dirname}/public`));
@@ -18,10 +19,7 @@ if (config.production) {
     helmet.contentSecurityPolicy({
       directives: {
         'default-src': ["'self'"],
-        'script-src': [
-          "'self'",
-          "'sha256-lKtLIbt/r08geDBLpzup7D3pTCavi4hfYSO45z98900='",
-        ],
+        'script-src': ["'self'", "'sha256-lKtLIbt/r08geDBLpzup7D3pTCavi4hfYSO45z98900='"],
         'img-src': ["'self'", 'http://dummyimage.com'],
         'style-src-elem': ["'self'", 'https://fonts.googleapis.com'],
         'font-src': ['https://fonts.gstatic.com'],
@@ -38,7 +36,7 @@ if (config.dev) {
 
   const webpackDevMiddleware = require('webpack-dev-middleware');
   const webpackHotMiddleware = require('webpack-hot-middleware');
-  const webpackConfig = require('../../webpack.config.dev.js');
+  const webpackConfig = require('../../webpack.config.dev');
   const compiler = webpack(webpackConfig);
   const { publicPath } = webpackConfig.output;
   const serverConfig = {
@@ -52,7 +50,7 @@ if (config.dev) {
 
 app.get('*', renderApp);
 
-app.listen(config.port, error => {
+app.listen(config.port, (error) => {
   if (error) {
     console.error(error);
   } else {
